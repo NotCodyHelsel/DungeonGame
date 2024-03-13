@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+</head>
+<body style="">
+<canvas id='mycanvas' style="border:1px solid #000000;"></canvas>
+
+<div id="splash" style="font-size:100px"> Loading...<br>
+<img src="imgs/mario.gif">
+</div>
+
+<script>
+const canvas = document.querySelector("canvas");
+const ctx = canvas.getContext('2d');
+
+function resizeCanvas() {
+  canvas.width = window.innerWidth - 20;
+  canvas.height = window.innerHeight - 20;
+  redraw();
+}
+
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
+
+var current_state;
+var game_data;
+
+$.getJSON( "data/map.json", function( data ) {
+        game_data = data;
+        current_state = data['start_state'];
+        loadImgs();
+}).fail(function() {
+    console.error("Failed to load JSON data.");
+});
+
+function allLoaded(){
+    redraw(); 
+    console.log(current_state);
+    $('#splash').hide();
+    $('#mycanvas').show();
+}
+
+function loadImgs(){
+    let loadedImages = 0;
+    let totalImages = 0;
+    
+    for (var key in game_data['states']){
+        if(game_data['states'][key]['bk_img'] != null){
+            totalImages++;
+            game_data['states'][key]['bk_img_loaded'] = new Image();
+            game_data['states'][key]['bk_img_loaded'].onload = function() {
+                loadedImages++;
+                if (loadedImages === totalImages) {
+                    allLoaded();
+                }
+            };
+            game_data['states'][key]['bk_img_loaded'].src = game_data['states'][key]['bk_img']; 
+        }
+    }
+}
+
+const upArrow = 38;
+const downArrow = 40;
+const leftArrow = 37;
+const rightArrow = 39;
+
+var curPosX = 0;
+var curPosY = 0;
+
+document.body.onkeydown = function(e){
+    if(e.keyCode == upArrow){
+        curPosX = curPosX +1;
+    }
+   //alert(String.fromCharCode(e.keyCode)+" --> "+e.keyCode);
+    keyInput(e.keyCode)
+};
+
+function keyInput(whatKey){
+    for(var i = 0; i < game_data['states'][current_state]['next_state'].length; i++){
+        if(whatKey == game_data['states'][current_state]['next_state'][i]['key_input']) {
+            nextState(game_data['states'][current_state]['next_state'][i]['state_name']);
+            break; // Exit loop once the key is found
+        } 
+    }
+
+    console.log(whatKey);
+}
+
+function nextState(state) {
+    console.log("Current State = " + current_state + " --> New State= " + state) 
+    current_state = state
+
+    redraw();
+    if(game_data['states'][current_state]['other_imgs'] != null){
+        for(i=0; i<game_data['states'][current_state]['other_imgs'].length;i++){
+            console.log( game_data['states'][current_state]['other_imgs'][i]['src']);
+            drawSrc( game_data['states'][current_state]['other_imgs'][i]['src'],
+                    game_data['states'][current_state]['other_imgs'][i]['x_cord'],
+                    game_data['states'][current_state]['other_imgs'][i]['y_cord'],
+                    game_data['states'][current_state]['other_imgs'][i]['width'],
+                    game_data['states'][current_state]['other_imgs'][i]['height']);
+        }
+    }
+}
+
+function redraw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  if (game_data && game_data['states'] && game_data['states'][current_state] && game_data['states'][current_state]['bk_img_loaded']) {
+    ctx.drawImage(game_data['states'][current_state]['bk_img_loaded'], 0, 0, canvas.width, canvas.height);
+  }
+}
+
+function drawSrc(src, x, y, w, h) {
+  var img = new Image();
+  img.onload = function() {
+    ctx.drawImage(img, x, y, w, h);
+  };
+  img.src = src;
+}
+</script>
+
+</body>
+</html>

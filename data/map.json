@@ -18,17 +18,53 @@
                                 "key_input" : 38
                              },
                              { 
-                                "state_name": "0,0-b",
+                                "state_name": "0,0-r",
                                 "key_input" : 39
+                             },
+                             {
+                                "state_name": "0,0-d",
+                                "key_input" : 40
+                             },
+                             {
+                                "state_name": "0,0-l",
+                                "key_input" : 37
                              }
                             ]
         },
-        "0,0-b": {
+        "0,0-r": {
             "bk_img" : "imgs/wall.jpg",
             "next_state" : [ { 
                                 "state_name": "0,0",
                                 "key_input" : 37
+                             },
+                             { 
+                                "state_name": "0,0-d",
+                                "key_input" : 39
                              }
+                            ]   
+        },
+        "0,0-d": {
+            "bk_img" : "imgs/wall.jpg",
+            "next_state" : [ { 
+                "state_name": "0,0-r",
+                "key_input" : 37
+             },
+             { 
+                "state_name": "0,0-l",
+                "key_input" : 39
+             }
+                            ]   
+        },
+        "0,0-l": {
+            "bk_img" : "imgs/wall.jpg",
+            "next_state" : [ { 
+                "state_name": "0,0-d",
+                "key_input" : 37
+             },
+             { 
+                "state_name": "0,0",
+                "key_input" : 39
+             }
                             ]   
         },
         "0,1": {

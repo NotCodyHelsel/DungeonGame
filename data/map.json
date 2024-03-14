@@ -6,11 +6,11 @@
         "0,0": {
             "bk_img" : "imgs/hall.jpg",
             "other_imgs": [ {
-                                "src" : "imgs/dragv.jpg",
-                                "x_cord" : 100,
-                                "y_cord" : 100,
-                                "width" : 500,
-                                "height" : 500
+                                "src" : "imgs/up.png",
+                                "x_cord" : 20,
+                                "y_cord" : 20,
+                                "width" : 100,
+                                "height" : 100
                             }
                         ],
             "next_state" : [ {

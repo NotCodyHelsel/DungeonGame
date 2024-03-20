@@ -41,6 +41,12 @@ function allLoaded(){
     $('#mycanvas').show();
 }
 
+function drawText(text) {
+  ctx.font = '100px Arial';
+  ctx.fillStyle = 'red';
+  ctx.fillText(text, 20, 100);
+}
+
 function loadImgs(){
     let loadedImages = 0;
     let totalImages = 0;
@@ -101,6 +107,14 @@ function nextState(state) {
                     game_data['states'][current_state]['other_imgs'][i]['width'],
                     game_data['states'][current_state]['other_imgs'][i]['height']);
         }
+    }
+
+    if (game_data['states'][current_state]['text']) {
+        drawText(
+            game_data['states'][current_state]['text'],
+            game_data['states'][current_state]['text_x'],
+            game_data['states'][current_state]['text_y'],
+        );
     }
 }
 

@@ -5,14 +5,7 @@
     
         "0,0": {
             "bk_img" : "imgs/hall.jpg",
-            "other_imgs": [ {
-                                "src" : "imgs/up.png",
-                                "x_cord" : 20,
-                                "y_cord" : 20,
-                                "width" : 100,
-                                "height" : 100
-                            }
-                        ],
+            "text" : "(0,0)",
             "next_state" : [ {
                                 "state_name": "0,1",
                                 "key_input" : 38
@@ -21,7 +14,7 @@
                                 "state_name": "0,0-r",
                                 "key_input" : 39
                              },
-                             {
+                             { 
                                 "state_name": "0,0-d",
                                 "key_input" : 40
                              },
@@ -33,6 +26,7 @@
         },
         "0,0-r": {
             "bk_img" : "imgs/wall.jpg",
+            "text" : "(0,0-R)",
             "next_state" : [ { 
                                 "state_name": "0,0",
                                 "key_input" : 37
@@ -44,7 +38,8 @@
                             ]   
         },
         "0,0-d": {
-            "bk_img" : "imgs/wall.jpg",
+            "bk_img" : "imgs/hall.jpg",
+            "text" : "(0,0-D)",
             "next_state" : [ { 
                 "state_name": "0,0-r",
                 "key_input" : 37
@@ -52,11 +47,16 @@
              { 
                 "state_name": "0,0-l",
                 "key_input" : 39
-             }
+             },
+             { 
+               "state_name": "0,-1-d",
+               "key_input" : 38
+            }
                             ]   
         },
         "0,0-l": {
             "bk_img" : "imgs/wall.jpg",
+            "text" : "(0,0-L)",
             "next_state" : [ { 
                 "state_name": "0,0-d",
                 "key_input" : 37
@@ -68,18 +68,334 @@
                             ]   
         },
         "0,1": {
+         "bk_img" : "imgs/hall.jpg",
+         "text" : "(0,1)",
+         "next_state" : [ {
+                             "state_name": "0,2",
+                             "key_input" : 38
+                          },
+                          { 
+                             "state_name": "0,1-r",
+                             "key_input" : 39
+                          },
+                          { 
+                           "state_name": "0,1-d",
+                           "key_input" : 40
+                        },
+                          {
+                             "state_name": "0,1-l",
+                             "key_input" : 37
+                          }
+                         ]
+         },
+         "0,1-r": {
             "bk_img" : "imgs/wall.jpg",
+            "text" : "(0,1-R)",
             "next_state" : [ { 
-                                "state_name": "0,1",
+                              "state_name": "0,1",
+                              "key_input" : 37
+                           },
+                           { 
+                              "state_name": "0,1-d",
+                              "key_input" : 39
+                           }
+                           ]   
+         },
+         "0,1-d": {
+               "bk_img" : "imgs/hall.jpg",
+               "text" : "(0,1-D)",
+               "next_state" : [ { 
+                  "state_name": "0,1-r",
+                  "key_input" : 37
+               },
+               { 
+                  "state_name": "0,1-l",
+                  "key_input" : 39
+               },
+               { 
+                  "state_name": "0,0-d",
+                  "key_input" : 38
+               }
+                              ]   
+         },
+         "0,1-l": {
+               "bk_img" : "imgs/wall.jpg",
+               "text" : "(0,1-L)",
+               "next_state" : [ { 
+                  "state_name": "0,1-d",
+                  "key_input" : 37
+               },
+               { 
+                  "state_name": "0,1",
+                  "key_input" : 39
+               }
+                              ]   
+         },
+         "0,2": {
+            "bk_img" : "imgs/hall.jpg",
+            "text" : "(0,2)",
+            "next_state" : [ {
+                                "state_name": "0,3",
                                 "key_input" : 38
                              },
                              { 
-                                "state_name": "0,0",
-                                "key_input" : 40
+                                "state_name": "0,2-r",
+                                "key_input" : 39
+                             },
+                             { 
+                              "state_name": "0,2-d",
+                              "key_input" : 40
+                           },
+                             {
+                                "state_name": "0,2-l",
+                                "key_input" : 37
                              }
-   
-                            ]   
-        } 
-    }
+                            ]
+            },
+            "0,2-r": {
+               "bk_img" : "imgs/wall.jpg",
+               "text" : "(0,2-R)",
+               "next_state" : [ { 
+                                 "state_name": "0,2",
+                                 "key_input" : 37
+                              },
+                              { 
+                                 "state_name": "0,2-d",
+                                 "key_input" : 39
+                              }
+                              ]   
+            },
+            "0,2-d": {
+                  "bk_img" : "imgs/hall.jpg",
+                  "text" : "(0,2-D)",
+                  "next_state" : [ { 
+                     "state_name": "0,2-r",
+                     "key_input" : 37
+                  },
+                  { 
+                     "state_name": "0,2-l",
+                     "key_input" : 39
+                  },
+                  { 
+                     "state_name": "0,1-d",
+                     "key_input" : 38
+                  }
+                                 ]   
+            },
+            "0,2-l": {
+                  "bk_img" : "imgs/wall.jpg",
+                  "text" : "(0,2-L)",
+                  "next_state" : [ { 
+                     "state_name": "0,2-d",
+                     "key_input" : 37
+                  },
+                  { 
+                     "state_name": "0,2",
+                     "key_input" : 39
+                  }
+                                 ]   
+            },
+            "0,3": {
+               "bk_img" : "imgs/hall.jpg",
+               "text" : "(0,3)",
+               "next_state" : [ {
+                                   "state_name": "0,4",
+                                   "key_input" : 38
+                                },
+                                { 
+                                   "state_name": "0,3-r",
+                                   "key_input" : 39
+                                },
+                                { 
+                                 "state_name": "0,3-d",
+                                 "key_input" : 40
+                              },
+                                {
+                                   "state_name": "0,3-l",
+                                   "key_input" : 37
+                                }
+                               ]
+               },
+               "0,3-r": {
+                  "bk_img" : "imgs/wall.jpg",
+                  "text" : "(0,3-R)",
+                  "next_state" : [ { 
+                                    "state_name": "0,3",
+                                    "key_input" : 37
+                                 },
+                                 { 
+                                    "state_name": "0,3-d",
+                                    "key_input" : 39
+                                 }
+                                 ]   
+               },
+               "0,3-d": {
+                     "bk_img" : "imgs/hall.jpg",
+                     "text" : "(0,3-D)",
+                     "next_state" : [ { 
+                        "state_name": "0,3-r",
+                        "key_input" : 37
+                     },
+                     { 
+                        "state_name": "0,3-l",
+                        "key_input" : 39
+                     },
+                     { 
+                        "state_name": "0,2-d",
+                        "key_input" : 38
+                     }
+                                    ]   
+               },
+               "0,3-l": {
+                     "bk_img" : "imgs/wall.jpg",
+                     "text" : "(0,3-L)",
+                     "next_state" : [ { 
+                        "state_name": "0,3-d",
+                        "key_input" : 37
+                     },
+                     { 
+                        "state_name": "0,3",
+                        "key_input" : 39
+                     }
+                                    ]   
+               },
+               "0,-1": {
+                  "bk_img" : "imgs/wall.jpg",
+                  "other_imgs": [ {
+                     "src" : "imgs/treasure.png",
+                     "x_cord" : 450,
+                     "y_cord" : 450,
+                     "width" : 500,
+                     "height" : 500
+                 }
+               ],
+                  "text" : "(0,4)",
+                  "next_state" : [ { 
+                                      "state_name": "0,4-r",
+                                      "key_input" : 39
+                                   },
+                                   { 
+                                    "state_name": "0,4-d",
+                                    "key_input" : 40
+                                 },
+                                   {
+                                      "state_name": "0,4-l",
+                                      "key_input" : 37
+                                   }
+                                  ]
+                  },
+                  "0,4-r": {
+                     "bk_img" : "imgs/wall.jpg",
+                     "text" : "(0,4-R)",
+                     "next_state" : [ { 
+                                       "state_name": "0,4",
+                                       "key_input" : 37
+                                    },
+                                    { 
+                                       "state_name": "0,4-d",
+                                       "key_input" : 39
+                                    }
+                                    ]   
+                  },
+                  "0,4-d": {
+                        "bk_img" : "imgs/hall.jpg",
+                        "text" : "(0,4-D)",
+                        "next_state" : [ { 
+                           "state_name": "0,4-r",
+                           "key_input" : 37
+                        },
+                        { 
+                           "state_name": "0,4-l",
+                           "key_input" : 39
+                        },
+                        { 
+                           "state_name": "0,3-d",
+                           "key_input" : 38
+                        }
+                                       ]   
+                  },
+                  "0,4-l": {
+                        "bk_img" : "imgs/wall.jpg",
+                        "text" : "(0,4-L)",
+                        "next_state" : [ { 
+                           "state_name": "0,4-d",
+                           "key_input" : 37
+                        },
+                        { 
+                           "state_name": "0,4",
+                           "key_input" : 39
+                        }
+                                       ]   
+                  },
+                  "0,4": {
+                     "bk_img" : "imgs/wall.jpg",
+                     "other_imgs": [ {
+                        "src" : "imgs/treasure.png",
+                        "x_cord" : 450,
+                        "y_cord" : 450,
+                        "width" : 500,
+                        "height" : 500
+                    }
+                  ],
+                     "text" : "(0,4)",
+                     "next_state" : [ { 
+                                         "state_name": "0,4-r",
+                                         "key_input" : 39
+                                      },
+                                      { 
+                                       "state_name": "0,4-d",
+                                       "key_input" : 40
+                                    },
+                                      {
+                                         "state_name": "0,4-l",
+                                         "key_input" : 37
+                                      }
+                                     ]
+                     },
+                     "0,4-r": {
+                        "bk_img" : "imgs/wall.jpg",
+                        "text" : "(0,4-R)",
+                        "next_state" : [ { 
+                                          "state_name": "0,4",
+                                          "key_input" : 37
+                                       },
+                                       { 
+                                          "state_name": "0,4-d",
+                                          "key_input" : 39
+                                       }
+                                       ]   
+                     },
+                     "0,4-d": {
+                           "bk_img" : "imgs/hall.jpg",
+                           "text" : "(0,4-D)",
+                           "next_state" : [ { 
+                              "state_name": "0,4-r",
+                              "key_input" : 37
+                           },
+                           { 
+                              "state_name": "0,4-l",
+                              "key_input" : 39
+                           },
+                           { 
+                              "state_name": "0,3-d",
+                              "key_input" : 38
+                           }
+                                          ]   
+                     },
+                     "0,4-l": {
+                           "bk_img" : "imgs/wall.jpg",
+                           "text" : "(0,4-L)",
+                           "next_state" : [ { 
+                              "state_name": "0,4-d",
+                              "key_input" : 37
+                           },
+                           { 
+                              "state_name": "0,4",
+                              "key_input" : 39
+                           }
+                                          ]   
+                     }
+
+   }
 }
 
